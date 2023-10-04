@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     LoginComponent,
     ViewProductsComponent,
     CheckoutComponent,
+    SigninComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
