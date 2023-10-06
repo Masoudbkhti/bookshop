@@ -1,0 +1,36 @@
+<div class="px-32">
+  <app-cart></app-cart>
+  <div *ngIf="dataLast">
+    <div>
+      <h2 class="text-right">جدیدترین‌ها</h2>
+    </div>
+    <mat-grid-list gutterSize="16" cols="5" rowHeight="300">
+      <mat-grid-tile *ngFor="let product of dataLast">
+        <app-product-box (addToCart)="onAddToCart($event)" [data]="product">
+        </app-product-box>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div *ngIf="dataMostseller">
+    <div>
+      <h2 class="text-right">پرفروش‌ترین‌ها</h2>
+    </div>
+    <mat-grid-list gutterSize="16" cols="5" rowHeight="300">
+      <mat-grid-tile *ngFor="let product of dataMostseller">
+        <app-mostseller (addToCart)="onAddToCart($event)" [data]="product">
+        </app-mostseller>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div *ngIf="dataNews">
+    <div>
+      <h2 class="text-right">تازه‌ها</h2>
+    </div>
+    <mat-grid-list gutterSize="16" cols="5" rowHeight="300">
+      <mat-grid-tile *ngFor="let product of dataNews">
+        <app-news (addToCart)="onAddToCart($event)" [data]="product">
+        </app-news>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

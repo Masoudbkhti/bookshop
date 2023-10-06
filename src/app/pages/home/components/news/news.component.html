@@ -1,0 +1,18 @@
+<mat-card *ngIf="data" class="text-center">
+  <div>
+    <img class="mx-auto mb-1 h-[200px]" [src]="data.image" />
+    <div class="w-full">
+      <div>
+        <h2>{{ data.title }}</h2>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-red-400">{{
+          data.price | currency : "ریال" : true : "2.0"
+        }}</span>
+        <button (click)="onAddToCart()">
+          <mat-icon class="text-gray-500">shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-card>
