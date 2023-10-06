@@ -1,0 +1,13 @@
+<mat-card class="py-3 my-16">
+  <div *ngIf="cart.items.length" class="flex justify-center">
+    <span>:({{ getTotalQuantity(cart.items) }})</span>
+    <span>مجموع قیمت</span>
+    <span>{{ getTotalPrice(cart.items) | currency : "ریال" }}</span>
+  </div>
+  <div *ngIf="!cart.items.length">
+    <p>
+      سبد خرید خالی است
+      <button mat-raised-button routerLink="/home">شروع خرید</button>
+    </p>
+  </div>
+</mat-card>
