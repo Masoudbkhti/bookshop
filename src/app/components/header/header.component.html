@@ -30,7 +30,7 @@
             >
               {{ item.name }} x {{ item.quantity }}
               <span class="font-bold rtl:first-line:">{{
-                "150" | currency : "ریال"
+                item.price | currency : "ریال"
               }}</span>
             </div>
           </div>

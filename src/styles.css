@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: url("../src/assets/fonts/Vazirmatn.ttf");
+  src: url("assets/fonts/Vazirmatn.ttf");
 }
 * {
   margin: 0;
@@ -17,6 +17,7 @@ html,
 body {
   height: 100%;
   background-color: #f6f5f5;
+  font-family: "Vazirmatn";
 }
 
 .search-input :focus {
