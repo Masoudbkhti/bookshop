@@ -1,0 +1,6 @@
+.search-input :focus {
+  border: none;
+}
+.search-input ::placeholder {
+  margin-left: 5px;
+}

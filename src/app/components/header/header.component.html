@@ -1,0 +1,83 @@
+<div class="flex justify-center px-32 py-3">
+  <div class="flex-none w-80">
+    <mat-toolbar class="flex justify-between">
+      <div class="flex gap-5">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon
+            [matBadge]="itemsQuantity"
+            [matBadgeHidden]="!itemsQuantity"
+            matBadgeColor="warn"
+            matBadgeSize="small"
+            class="text-green"
+            >shopping_cart</mat-icon
+          >
+        </button>
+        <button mat-icon-button>
+          <mat-icon class="text-green"> account_circle </mat-icon>
+        </button>
+      </div>
+
+      <mat-menu #menu="matMenu">
+        <div class="p-3 divide-y divide-solid">
+          <div class="flex justify-between pb-3">
+            <span class="mr-16"> {{ itemsQuantity }} Items </span>
+            <a routerLink="cart">View Cart</a>
+          </div>
+          <div *ngIf="cart.items.length" class="py-3">
+            <div
+              *ngFor="let item of cart.items"
+              class="flex justify-between mb-2 font-light"
+            >
+              {{ item.name }} x {{ item.quantity }}
+              <span class="font-bold rtl:first-line:">{{
+                "150" | currency : "ریال"
+              }}</span>
+            </div>
+          </div>
+          <div class="flex justify-between py-3 font-light">
+            Total:
+            <span class="font-bold">{{
+              getTotalPrice(cart.items) | currency
+            }}</span>
+          </div>
+          <div class="flex items-center justify-between pt-3">
+            <button
+              class="flex items-center justify-center text-white rounded-full bg-rose-600 w-9 h-9"
+              (click)="onClearCart()"
+            >
+              <mat-icon>remove_shopping-cart</mat-icon>
+            </button>
+            <button
+              routerLink="cart"
+              class="flex items-center justify-center text-white rounded-full bg-green w-9 h-9"
+            >
+              <mat-icon>remove_shopping-cart</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-menu>
+    </mat-toolbar>
+  </div>
+
+  <div class="grow">
+    <mat-form-field appearance="outline" class="w-full">
+      <input matInput placeholder="کتاب" class="search-input" />
+      <mat-icon matPrefix class="ml-1 text-white bg-green rounded-2xl"
+        >search</mat-icon
+      >
+      <mat-icon matPrefix class="ml-5 text-gray-600">expand_more</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="w-80"></div>
+</div>
+<div class="flex flex-row-reverse justify-center gap-3">
+  <span class="text-gray-600 cursor-pointer">نوجوان</span>
+  <span class="text-gray-600 cursor-pointer">ادبیات</span>
+  <span class="text-gray-600 cursor-pointer">روانشناسی</span>
+  <span class="text-gray-600 cursor-pointer">رمان</span>
+  <span class="text-gray-600 cursor-pointer">خارجی</span>
+  <span class="text-gray-600 cursor-pointer">تاریخ</span>
+  <span class="text-gray-600 cursor-pointer">هنر</span>
+  <span class="text-gray-600 cursor-pointer">سایر دسته بندی ها</span>
+  <mat-icon class="text-gray-600 cursor-pointer">expand_more</mat-icon>
+</div>
