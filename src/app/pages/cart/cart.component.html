@@ -1,5 +1,16 @@
-<mat-card class="py-3 my-16">
-  <div *ngIf="cart.items.length" class="flex justify-center">
+<mat-card class="p-3 my-16 flex flex-row-reverse justify-center h-[100px]">
+  <div
+    *ngIf="productImageUrl || productTitle"
+    class="flex flex-row-reverse items-center gap-3"
+  >
+    <img [src]="productImageUrl" alt="Product Image" class="w-[50px]" />
+    <p>.{{ productTitle }} به سبد اضافه شد</p>
+  </div>
+  <div
+    *ngIf="cart.items.length"
+    class="flex justify-center"
+    [ngClass]="{ flex: true, 'items-center': true }"
+  >
     <span>:({{ getTotalQuantity(cart.items) }})</span>
     <span>مجموع قیمت</span>
     <span>{{ getTotalPrice(cart.items) | currency : "ریال" }}</span>

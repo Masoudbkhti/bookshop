@@ -1,10 +1,9 @@
-import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
-import { Book, LASTBOOKS, ProductList } from 'src/lib/data';
+import { Component, Output, EventEmitter, Input, OnInit } from "@angular/core";
+import { Book, LASTBOOKS } from "src/lib/data";
 
 @Component({
-  selector: 'app-product-box',
-  templateUrl: './product-box.component.html',
+  selector: "app-product-box",
+  templateUrl: "./product-box.component.html",
 })
 export class ProductBoxComponent implements OnInit {
   @Input() data: Book | undefined;

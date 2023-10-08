@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
-import { CartService } from 'src/app/services/cart.service';
+import { Component, OnInit } from "@angular/core";
+import { Product } from "src/app/models/product.model";
+import { CartService } from "src/app/services/cart.service";
+import { ProductImageServiceService } from "src/app/services/product-image-service.service";
 import {
   Book,
   DATABASE,
@@ -9,14 +10,17 @@ import {
   NEWBOOKS,
   PRODUCTS,
   ProductList,
-} from 'src/lib/data';
+} from "src/lib/data";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: "app-home",
+  templateUrl: "./home.component.html",
 })
 export class HomeComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private productImageService: ProductImageServiceService
+  ) {}
 
   products: Product | undefined;
   categoryData = PRODUCTS.map((item) => item.list_name);
@@ -43,5 +47,9 @@ export class HomeComponent implements OnInit {
       name: product.name,
       category: product.category,
     });
+    this.productImageService.setProductImageAndTitle(
+      product.image,
+      product.name
+    );
   }
 }
